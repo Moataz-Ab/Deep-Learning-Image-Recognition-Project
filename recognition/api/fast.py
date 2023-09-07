@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from recognition.interface.predict import predict, preprocess_image, load_model
 ## model imports here
 
 app = FastAPI()
@@ -15,12 +15,11 @@ app.add_middleware(
 )
 
 
+app.state.model = load_model(target="local") # load once
 @app.get("/predict")
 def predict():
-
-# preprocess
-
-# predict with model
+  image = load_image()
+  preprocess_image(image)
 
   return {
     "family": "family"

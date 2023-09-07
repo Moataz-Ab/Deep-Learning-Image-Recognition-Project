@@ -1,7 +1,11 @@
 from tensorflow.keras.utils import image_dataset_from_directory
-
+from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
+import numpy as np
+from tensorflow.keras.applications import preprocess_input
+import tensorflow as tf
+from tensorflow.keras.preprocessing import image
 def preprocess(directory):
-    return image_dataset_from_directory(
+    Xy = image_dataset_from_directory(
     directory= directory,
     labels='inferred',
     label_mode='categorical',
@@ -17,4 +21,12 @@ def preprocess(directory):
     follow_links=False,
     crop_to_aspect_ratio=False)
     
-  
+    Xy_preprocessed = Xy.map(lambda x, y: (preprocess_input(x), y))
+    return Xy_preprocessed
+    
+def preprocess_image(image):
+    img_array = np.array(image)
+    # resize image 
+    img_resized = tf.image.resize(img_array, (256, 256))
+    img_preprocessed = preprocess_input(img_resized) # preprcess
+    return img_preprocessed
