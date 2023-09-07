@@ -21,12 +21,12 @@ app.add_middleware(
 )
 @app.on_event("startup")
 async def startup_event():
-    app.state.model = load_model(target="local") # load once
+    app.state.model = load_model(target="gcs") # load once
 
 @app.get("/predict")
 def predict():
   image_path = os.path.join(os.getcwd(), "data/737_tarom.jpg")
-  print(Fore.YELLOW, f"{image_path}")
+  # print(Fore.YELLOW, f"{image_path}")
   image_tensor = load_image_tensor(image_path=image_path)
   # model=app.state.model
   image_processed = preprocess_image_tensor(image_tensor)
