@@ -1,9 +1,8 @@
-from recognition.interface.model import preprocess, load_model
+from recognition.interface.model import preprocess_input
+from recognition.helpers.load_model import load_model
 from recognition.interface.preprocessor import preprocess_image
 
-def predict(image):
-  model = load_model()
-  assert model is not None
+def predict(image, model):
   
   X_processed = preprocess_image(image)
   y_pred = model.predict(X_processed)

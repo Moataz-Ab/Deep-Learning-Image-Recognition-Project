@@ -1,7 +1,6 @@
 from tensorflow.keras.utils import image_dataset_from_directory
 from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
 import numpy as np
-from tensorflow.keras.applications import preprocess_input
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 def preprocess(directory):
