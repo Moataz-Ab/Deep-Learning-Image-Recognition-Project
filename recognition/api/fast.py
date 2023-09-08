@@ -1,9 +1,9 @@
 ## model imports here
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from recognition.interface.predict import predict_image
 from recognition.helpers.load_model import load_model
-from recognition.helpers.load_image import load_image_tensor
+from recognition.helpers.load_image import load_image_tensor, load_image_from_file
 from recognition.interface.preprocessor import preprocess_image_tensor
 
 import os
@@ -23,10 +23,24 @@ app.add_middleware(
 async def startup_event():
     app.state.model = load_model(target="local") # load once
 
-@app.get("/predict")
+@app.post("/predict")
+async def predict(file: UploadFile):
+    if file.filename == '':
+        return 'No selected file'
+    if file:
+        print(f"✔️ file received")
+        image_tensor = load_image_from_file(file.file)
+        image_processed = preprocess_image_tensor(image_tensor)
+        class_name = predict_image(image_processed=image_processed, model=app.state.model)
+        
+    return {
+        "predicted_class": f"{class_name}"
+    }
+
+@app.get("/local_predict")
 def predict():
   image_path = os.path.join(os.getcwd(), "data/737_tarom.jpg")
-  print(Fore.YELLOW, f"{image_path}")
+  # print(Fore.YELLOW, f"{image_path}")
   image_tensor = load_image_tensor(image_path=image_path)
   # model=app.state.model
   image_processed = preprocess_image_tensor(image_tensor)

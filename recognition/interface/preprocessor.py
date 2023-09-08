@@ -34,8 +34,6 @@ def preprocess(directory):
 #     return img_preprocessed
 
 
-
-
 def preprocess_image_tensor(image_tensor, target_size=(256, 256)):
     # Resize the image tensor to the target size
     img_resized = tf.image.resize(image_tensor, target_size)

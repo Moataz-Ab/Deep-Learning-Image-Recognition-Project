@@ -5,3 +5,4 @@ import os
 # TEST_DIR_URL = os.environ.get("TEST_DIR_URL")
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 LOCAL_PATH = os.environ.get("LOCAL_PATH")
+GCS_BUCKET = os.environ.get("GCS_BUCKET")
