@@ -8,5 +8,6 @@ def predict_image(image_processed, model):
   output = np.array(y_pred)
   predicted_index = np.argmax(output)
   predicted_class = aircraft_classes[predicted_index]
-  print("\n✅ predicted class: ", predicted_class, "\n")
+  print("\n✅ predicted class: ", predicted_class, "✈️")
+  print("✅ index: ", predicted_index, "\n")
   return predicted_class

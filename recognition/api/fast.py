@@ -37,7 +37,7 @@ async def predict(file: UploadFile):
         "predicted_class": f"{class_name}"
     }
 
-@app.get("/predict")
+@app.get("/local_predict")
 def predict():
   image_path = os.path.join(os.getcwd(), "data/737_tarom.jpg")
   # print(Fore.YELLOW, f"{image_path}")
