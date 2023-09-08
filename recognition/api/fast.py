@@ -21,7 +21,7 @@ app.add_middleware(
 )
 @app.on_event("startup")
 async def startup_event():
-    app.state.model = load_model(target="gcs") # load once
+    app.state.model = load_model(target="local") # load once
 
 @app.post("/predict")
 async def predict(file: UploadFile):
