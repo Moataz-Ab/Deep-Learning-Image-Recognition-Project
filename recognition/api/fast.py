@@ -31,10 +31,10 @@ async def predict(file: UploadFile):
         print(f"✔️ file received")
         image_tensor = load_image_from_file(file.file)
         image_processed = preprocess_image_tensor(image_tensor)
-        class_name = predict_image(image_processed=image_processed, model=app.state.model)
+        prob_list = predict_image(image_processed=image_processed, model=app.state.model)
         
     return {
-        "predicted_class": f"{class_name}"
+        "probabilty_np": f"{prob_list}"
     }
 
 @app.get("/local_predict")
