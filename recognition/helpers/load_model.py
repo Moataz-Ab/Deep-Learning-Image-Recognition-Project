@@ -12,7 +12,7 @@ def load_model(stage="Production", target="local") -> Model:
         print(Fore.BLUE + f"\nLoad latest model from local storage..." + Style.RESET_ALL)
         # Get the latest model version name by the timestamp on disk
         # local_model_directory = os.path.join(LOCAL_PATH, "models")
-        file_path = os.path.join(os.getcwd(), "models/model_final_optimized_corrected_dataset.h5")
+        file_path = os.path.join(os.getcwd(), "models/model_optimized_92 acc.h5")
         # models_path = os.path.join(os.getcwd(), "models")
         local_model_paths = glob.glob(file_path)
         
