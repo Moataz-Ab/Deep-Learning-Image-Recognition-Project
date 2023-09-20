@@ -1,7 +1,7 @@
 # Deep-Learning-Image-Recognition-Project
 
 In this work, deep learning image recognition techniques are used to identify aircraft model types from aircraft images. 
-![](prediction_example.jpeg)
+![](Notebooks/prediction_example.jpeg)
 
 ## Dataset
 The dataset is made available on Kaggle: https://www.kaggle.com/datasets/curiousstay/aircraft-dataset
