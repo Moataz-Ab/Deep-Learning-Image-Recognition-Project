@@ -34,10 +34,6 @@ Each subset consists of nine classes with balanced representation
 - The model shows good performance with 92% accuracy on both validation and test sets
 - The accuracy of predicting individual classes varies in the range of 84-97%
 
-## The APP
-- The model is deployed into the cloud and a front-end interface is developed for end users
-- The front-end app is made available here: https://aircraft-type-recognition.streamlit.app/
-
 ## Presentation
 You can watch the presentation of the project results here:
 https://www.youtube.com/watch?v=IGT-SU5wNrg
