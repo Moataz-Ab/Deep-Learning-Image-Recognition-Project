@@ -13,6 +13,14 @@ The provided dataset consists of 3 subsets:
 - 900 testing images
 Each subset consists of nine classes with balanced representation
 
+## Key Requirements
+- NumPy
+- Pandas
+- Tensorflow / Keras
+- Matplotlib
+- Seaborn
+- Scikit-learn Metrics
+
 ## Approach:
 - Training, validation, and testing sets are prepared using keras image_dataset_from_directory funtion
 - Transfer learning model EfficientNetV2B1 is utilized
