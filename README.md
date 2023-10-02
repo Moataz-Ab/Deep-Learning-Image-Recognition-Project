@@ -29,7 +29,7 @@ Each subset consists of nine classes with balanced representation
 - Early stopping is introduced to prevent over fitting
 
 ## Summary of results
-- Accuracy is chosed as the scoring metric
+- Accuracy is chosen as the scoring metric
 - The loss curve shows good learning pattern with no signs of overfitting
 - The model shows good performance with 92% accuracy on both validation and test sets
 - The accuracy of predicting individual classes varies in the range of 84-97%
