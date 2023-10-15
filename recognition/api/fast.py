@@ -9,6 +9,7 @@ from recognition.interface.preprocessor import preprocess_image_tensor
 import os
 from colorama import Fore, Style
 
+
 app = FastAPI()
 
 # Allowing all middleware is optional, but good practice for dev purposes
@@ -32,7 +33,7 @@ async def predict(file: UploadFile):
         image_tensor = load_image_from_file(file.file)
         image_processed = preprocess_image_tensor(image_tensor)
         prob_list = predict_image(image_processed=image_processed, model=app.state.model)
-        
+
     return {
         "probabilty_np": f"{prob_list}"
     }
